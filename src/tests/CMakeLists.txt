@@ -7,8 +7,16 @@ set(YAK_TESTS_SRC_MAIN_FILES
 )
 source_group("tests" FILES ${YAK_TESTS_SRC_MAIN_FILES})
 
+set(YAK_TESTS_YAK_SOURCE_CODE_FILES
+  yak/add.yak
+  yak/include.yak
+  yak/return_zero.yak
+)
+source_group("tests/yak" FILES ${YAK_TESTS_YAK_SOURCE_CODE_FILES})
+
 add_executable(${PROJECT_NAME}
   ${YAK_TESTS_SRC_MAIN_FILES}
+  ${YAK_TESTS_YAK_SOURCE_CODE_FILES}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main)
