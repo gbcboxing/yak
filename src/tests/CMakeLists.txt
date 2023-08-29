@@ -11,7 +11,9 @@ set(YAK_TESTS_YAK_SOURCE_CODE_FILES
   yak/add.yak
   yak/extra_whitespace.yak
   yak/include.yak
+  yak/multiple_includes.yak
   yak/return_zero.yak
+  yak/subtract.yak
 )
 source_group("tests/yak" FILES ${YAK_TESTS_YAK_SOURCE_CODE_FILES})
 

@@ -43,16 +43,24 @@ std::string ReadFile(const std::string& path) {
       while (current != end) {
         /* Remove leading and trailing quotes */
         std::smatch match = *current;
-        std::string include_path = match.str();
-        include_path.erase(0, 1);
-        include_path.erase(include_path.size() - 1);
+        std::string include_filename = match.str();
+        include_filename.erase(0, 1);
+        include_filename.erase(include_filename.size() - 1);
 
         /* Now that we have the include path, make it relative to the current directory */
         std::filesystem::path parent_dir = std::filesystem::path(path).parent_path();
-        std::string file_contents = ReadFile(parent_dir.string() + "/" + include_path);
+        std::string include_path = parent_dir.string() + std::string("/") + include_filename;
+        
+        /* If the file was specified without an extension, assume it's .yak */
+        if (std::filesystem::path(include_filename).extension().string() != ".yak") {
+          include_path += ".yak";
+        }
+        
+        /* Read file */
+        std::string file_contents = ReadFile(include_path);
 
         /* Prepend the calculated string so far with the contents of the included file */
-        const std::string &temp = ss.str();
+        const std::string& temp = ss.str();
         ss.seekp(0);
         ss << file_contents << temp;
 

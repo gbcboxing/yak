@@ -1,0 +1,5 @@
+#include "add" "subtract"
+
+func main() {
+  return subtract(3, add(1, 2));
+}
