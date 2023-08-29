@@ -3,6 +3,7 @@ project(yak)
 
 set(YAK_SRC_PREPROCESSOR_FILES
   yak/preprocessor/preprocessor.hpp yak/preprocessor/preprocessor.cpp
+  yak/preprocessor/trim_whitespace.hpp yak/preprocessor/trim_whitespace.cpp
 )
 source_group("src/yak/preprocessor" FILES ${YAK_SRC_PREPROCESSOR_FILES})
 
