@@ -16,4 +16,4 @@ add_library(${PROJECT_NAME}
   ${YAK_SRC_TOKENIZER_FILES}
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC src/yak)
+target_include_directories(${PROJECT_NAME} PUBLIC .)
