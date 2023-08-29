@@ -3,6 +3,7 @@ project(yak_tests)
 
 set(YAK_TESTS_SRC_MAIN_FILES
   test_main.cpp
+  test_preprocessor.hpp
 )
 source_group("tests" FILES ${YAK_TESTS_SRC_MAIN_FILES})
 

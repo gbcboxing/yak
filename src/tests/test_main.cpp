@@ -1,0 +1,8 @@
+#include "test_preprocessor.hpp"
+
+int main(int argc, char** argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  auto result = RUN_ALL_TESTS();
+  (void)getchar();
+  return result;
+}
