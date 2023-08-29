@@ -22,5 +22,6 @@ add_library(${PROJECT_NAME}
   ${YAK_SRC_PREPROCESSOR_FILES}
   ${YAK_SRC_TOKENIZER_FILES}
 )
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 target_include_directories(${PROJECT_NAME} PUBLIC .)
