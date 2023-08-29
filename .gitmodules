@@ -1,3 +1,6 @@
 [submodule "src/lib/args"]
 	path = src/lib/args
 	url = https://github.com/Taywee/args
+[submodule "src/lib/googletest"]
+	path = src/lib/googletest
+	url = https://github.com/google/googletest
