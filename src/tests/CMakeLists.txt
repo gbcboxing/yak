@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME}
   ${YAK_TESTS_SRC_MAIN_FILES}
   ${YAK_TESTS_YAK_SOURCE_CODE_FILES}
 )
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main)
 target_link_libraries(${PROJECT_NAME} PRIVATE yak)

@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME}
   ${YAK_SRC_MAIN_FILES}
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "yak")
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 add_subdirectory(src/yak)
 
