@@ -21,5 +21,5 @@ add_subdirectory(src/lib/googletest)
 add_subdirectory(src/tests)
 
 if(WIN32)
-  set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+  set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT yak_tests)
 endif()
