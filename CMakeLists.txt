@@ -6,6 +6,11 @@ set(YAK_SRC_MAIN_FILES
 )
 source_group("src/yak" FILES ${YAK_SRC_MAIN_FILES})
 
+set(YAK_SRC_PREPROCESSOR_FILES
+  src/yak/preprocessor/preprocessor.hpp src/yak/preprocessor/preprocessor.cpp
+)
+source_group("src/yak/preprocessor" FILES ${YAK_SRC_PREPROCESSOR_FILES})
+
 set(YAK_SRC_TOKENIZER_FILES
   src/yak/tokenizer/tokenizer.hpp src/yak/tokenizer/tokenizer.cpp
 )
@@ -13,6 +18,7 @@ source_group("src/yak/tokenizer" FILES ${YAK_SRC_TOKENIZER_FILES})
 
 add_executable(${PROJECT_NAME}
   ${YAK_SRC_MAIN_FILES}
+  ${YAK_SRC_PREPROCESSOR_FILES}
   ${YAK_SRC_TOKENIZER_FILES}
 )
 
