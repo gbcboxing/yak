@@ -14,7 +14,7 @@ struct FileNotFoundException : public std::exception {
     what_str = ss.str();
   }
 
-  const char* what() const override {
+  virtual const char* what() const noexcept override {
     return what_str.c_str();
   }
 
