@@ -12,15 +12,15 @@ set(YAK_SRC_PREPROCESSOR_FILES
 )
 source_group("src/yak/preprocessor" FILES ${YAK_SRC_PREPROCESSOR_FILES})
 
-set(YAK_SRC_TOKENIZER_FILES
-  yak/tokenizer/tokenizer.hpp yak/tokenizer/tokenizer.cpp
+set(YAK_SRC_LEXER_FILES
+  yak/lexer/lexer.hpp yak/lexer/lexer.cpp
 )
-source_group("src/yak/tokenizer" FILES ${YAK_SRC_TOKENIZER_FILES})
+source_group("src/yak/lexer" FILES ${YAK_SRC_LEXER_FILES})
 
 add_library(${PROJECT_NAME}
   ${YAK_SRC_EXCEPTIONS_FILES}
+  ${YAK_SRC_LEXER_FILES}
   ${YAK_SRC_PREPROCESSOR_FILES}
-  ${YAK_SRC_TOKENIZER_FILES}
 )
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
