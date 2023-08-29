@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <fstream>
 #include <regex>
+#include <unordered_set>
 #include <sstream>
 
 #include "yak/exceptions/exceptions.hpp"
@@ -15,12 +16,15 @@ namespace Preprocessor {
 /* Execute any preprocessor directives we find */
 /* Finally, apply some formatting to the output code string - trim or insert whitespace, etc. */
 /* Last step is not really necessary, but it makes the strings easier for a human to grok */
-std::string ReadFile(const std::string& path) {
+std::string ReadFile(const std::string& path, std::unordered_set<std::string>& included_so_far) {
   std::ifstream in_file(path);
 
   if (!in_file.is_open()) {
     throw yak::Exceptions::FileNotFoundException(path);
   }
+  
+  /* Use a set of visited files to avoid circular includes or including the same file twice */
+  included_so_far.emplace(std::filesystem::path(path).stem().string());
 
   std::stringstream ss;
 
@@ -46,6 +50,12 @@ std::string ReadFile(const std::string& path) {
         std::string include_filename = match.str();
         include_filename.erase(0, 1);
         include_filename.erase(include_filename.size() - 1);
+        
+        /* Avoid including the same file twice */
+        if (included_so_far.find(include_filename) != included_so_far.end()) {
+          (void)*current++;
+          continue;
+        }
 
         /* Now that we have the include path, make it relative to the current directory */
         std::filesystem::path parent_dir = std::filesystem::path(path).parent_path();
@@ -84,6 +94,11 @@ std::string ReadFile(const std::string& path) {
   /* Trim all whitespace from the start and end of the string */
   result = yak::Preprocessor::TrimWhitespace(result);
   return result;
+}
+
+std::string ReadFile(const std::string& path) {
+  std::unordered_set<std::string> included_so_far;
+  return ReadFile(path, included_so_far);
 }
 
 }

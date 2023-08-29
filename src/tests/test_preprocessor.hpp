@@ -21,3 +21,8 @@ TEST(YakPreprocessor, CanFormatWhitespace) {
   auto code = yak::Preprocessor::ReadFile("yak/extra_whitespace.yak");
   EXPECT_EQ(code, "func main() { int a = 1 + 4; }");
 }
+
+TEST(YakPreprocessor, CanAvoidCircularInclude) {
+  auto code = yak::Preprocessor::ReadFile("yak/circular_include.yak");
+  EXPECT_EQ(code, "func main() { return 0; }");
+}
