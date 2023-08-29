@@ -9,6 +9,7 @@ source_group("tests" FILES ${YAK_TESTS_SRC_MAIN_FILES})
 
 set(YAK_TESTS_YAK_SOURCE_CODE_FILES
   yak/add.yak
+  yak/extra_whitespace.yak
   yak/include.yak
   yak/return_zero.yak
 )
