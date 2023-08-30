@@ -1,3 +1,4 @@
+#include "test_lexer.hpp"
 #include "test_preprocessor.hpp"
 
 int main(int argc, char** argv) {
