@@ -14,6 +14,7 @@ source_group("src/yak/preprocessor" FILES ${YAK_SRC_PREPROCESSOR_FILES})
 
 set(YAK_SRC_LEXER_FILES
   yak/lexer/lexer.hpp yak/lexer/lexer.cpp
+  yak/lexer/token.hpp yak/lexer/token.cpp
 )
 source_group("src/yak/lexer" FILES ${YAK_SRC_LEXER_FILES})
 
